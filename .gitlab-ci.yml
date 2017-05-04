@@ -1,0 +1,29 @@
+stages:   
+  - build   
+  - upload   
+  - publish
+before_script:
+  - docker info
+
+build_image:
+  stage: build 
+  script:
+    - docker build -t promet-server-alpine .
+
+update_remote:
+  stage: upload
+  variables:
+    REPO_NAME: "promet-server-alpine-docker"
+  script:
+    - cd $HOME
+    - rm -rf $REPO_NAME.git    
+    - git clone --bare http://192.168.177.120:10080/promet/$REPO_NAME.git
+    - cd $REPO_NAME.git
+    - git push --mirror git@github.com:cutec-chris/$REPO_NAME.git
+    - cd ..
+    - rm -rf $REPO_NAME.git
+
+build_docker:
+  stage: publish 
+  script:
+    - curl -X POST https://registry.hub.docker.com/u/cutec/promet-server/trigger/9/
