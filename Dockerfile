@@ -5,4 +5,5 @@ RUN wget http://downloads.free-erp.de/promet-erp-services_7.0.436_amd64-gtk2.deb
 RUN ar t promet-erp-services_7.0.436_amd64-gtk2.deb
 RUN ar p promet-erp-services_7.0.436_amd64-gtk2.deb data.tar.xz | tar -xJ
 RUN rm promet-erp-services_7.0.436_amd64-gtk2.deb
+RUN apk del wget tar gcc xz
 RUN ls /usr/lib
