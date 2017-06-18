@@ -8,4 +8,4 @@ RUN ar p promet-erp-services_PVERSION_amd64-gtk2.deb data.tar.xz | tar -xJ && \
 #RUN ls /usr/lib
 EXPOSE 8085
 VOLUME ["/usr/lib/promet-erp/web"]
-ENTRYPOINT ["/usr/lib/promet-erp/pappserver --nodav"]
+ENTRYPOINT ["/usr/lib/promet-erp/pappserver"]
