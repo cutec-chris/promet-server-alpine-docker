@@ -1,6 +1,6 @@
 FROM alpine 
 RUN apk add --no-cache bash wget tar gcc xz postgresql-client mysql-client sqlite && \
-    wget http://downloads.free-erp.de/promet-erp-services_7.0.437_amd64-gtk2.deb --level=5352
+    wget http://downloads.free-erp.de/promet-erp-services_7.0.437_amd64-gtk2.deb --level=22504
 #RUN ar t promet-erp-services_7.0.437_amd64-gtk2.deb
 RUN ar p promet-erp-services_7.0.437_amd64-gtk2.deb data.tar.xz | tar -xJ && \
     rm promet-erp-services_7.0.437_amd64-gtk2.deb && \
