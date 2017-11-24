@@ -5,6 +5,7 @@ RUN ar p promet-erp-services_PVERSION_amd64-gtk2.deb data.tar.xz | tar -xJ && \
     rm promet-erp-services_PVERSION_amd64-gtk2.deb && \
     apk del wget tar gcc xz
 #RUN ls /usr/lib
+RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
 EXPOSE 8085
 VOLUME ["/usr/lib/promet-erp/web"]
 COPY entrypoint.sh /opt/entrypoint.sh
