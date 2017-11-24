@@ -8,4 +8,5 @@ RUN ar p promet-erp-services_PVERSION_amd64-gtk2.deb data.tar.xz | tar -xJ && \
 EXPOSE 8085
 VOLUME ["/usr/lib/promet-erp/web"]
 COPY entrypoint.sh /opt/entrypoint.sh
+RUN ["chmod", "+x", "/opt/entrypoint.sh"]
 ENTRYPOINT ["/opt/entrypoint.sh"]
