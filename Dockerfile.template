@@ -1,5 +1,5 @@
 FROM alpine 
-RUN apk add --no-cache bash wget tar gcc xz postgresql-client mysql-client sqlite nano && \
+RUN apk add --no-cache bash wget tar gcc xz postgresql-client mysql-client sqlite freetype dbus nano && \
   # Workaround musl vs glibc entrypoint for `fpcmkcfg`
   mkdir /lib64 && \
   ln -s /lib/ld-musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
