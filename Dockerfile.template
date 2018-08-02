@@ -1,5 +1,5 @@
 FROM alpine 
-RUN apk add --no-cache bash postgresql-client mysql-client sqlite freetype dbus nano && \
+RUN apk add --no-cache bash postgresql-client mysql-client sqlite freetype dbus nano ttf-dejavu ttf-liberation && \
   # Workaround musl vs glibc entrypoint for `fpcmkcfg`
   mkdir /lib64 && \
   ln -s /lib/ld-musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
