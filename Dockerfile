@@ -1,12 +1,12 @@
 FROM alpine 
-RUN apk add --no-cache bash postgresql-client mysql-client sqlite freetype dbus nano && \
+RUN apk add --no-cache bash postgresql-client mysql-client sqlite freetype dbus nano ttf-dejavu ttf-liberation && \
   # Workaround musl vs glibc entrypoint for `fpcmkcfg`
   mkdir /lib64 && \
   ln -s /lib/ld-musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
 
 RUN apk add --no-cache --virtual .build-deps \
     wget tar gcc xz && \
-    wget http://downloads.free-erp.de/promet-erp-services_7.0.440_amd64-gtk2.deb --level=11662 && \
+    wget http://downloads.free-erp.de/promet-erp-services_7.0.440_amd64-gtk2.deb --level=28700 && \
     ar p promet-erp-services_7.0.440_amd64-gtk2.deb data.tar.xz | tar -xJ && \
     rm promet-erp-services_7.0.440_amd64-gtk2.deb && \
     apk del .build-deps
