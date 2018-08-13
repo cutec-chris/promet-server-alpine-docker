@@ -1,5 +1,5 @@
 FROM alpine 
-RUN apk add --no-cache bash postgresql-client mysql-client sqlite freetype dbus nano ttf-dejavu ttf-liberation && \
+RUN apk add --no-cache bash postgresql-client mysql-client sqlite freetype dbus nano ttf-dejavu ttf-liberation curl && \
   # Workaround musl vs glibc entrypoint for `fpcmkcfg`
   mkdir /lib64 && \
   ln -s /lib/ld-musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
@@ -16,3 +16,4 @@ VOLUME ["/usr/lib/promet-erp/web"]
 COPY entrypoint.sh /opt/entrypoint.sh
 RUN ["chmod", "+x", "/opt/entrypoint.sh"]
 ENTRYPOINT ["/opt/entrypoint.sh"]
+HEALTHCHECK CMD curl --fail http://localhost:8085/configuration/dbstatus/ || exit 1
