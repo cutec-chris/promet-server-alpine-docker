@@ -6,7 +6,7 @@ RUN apk add --no-cache bash postgresql-client mysql-client sqlite freetype dbus 
 
 RUN apk add --no-cache --virtual .build-deps \
     wget tar gcc xz && \
-    wget http://downloads.free-erp.de/promet-erp-services_7.0.440_amd64-gtk2.deb --level=3589 && \
+    wget http://downloads.free-erp.de/promet-erp-services_7.0.440_amd64-gtk2.deb --level=3965 && \
     ar p promet-erp-services_7.0.440_amd64-gtk2.deb data.tar.xz | tar -xJ && \
     rm promet-erp-services_7.0.440_amd64-gtk2.deb && \
     apk del .build-deps
