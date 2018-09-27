@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-              sh 'curl -X POST https://registry.hub.docker.com/u/cutec/promet-server-alpine-docker/trigger/a7020c4b-fa2e-4528-8451-d9456f76175a/'
+              sh 'curl -X POST https://registry.hub.docker.com/u/cutec/promet-server-alpine-docker/trigger/c10a3b25-ffaf-4b68-9ebd-d1abd58a99ca/'
             }
         }
     }
